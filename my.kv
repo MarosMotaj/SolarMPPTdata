@@ -1,0 +1,125 @@
+
+<MyRoot>
+
+    canvas.before:
+        Rectangle:
+            source: 'pictures/background.jpg'
+            pos: self.pos
+            size: self.size
+
+    FloatLayout:
+        orientation: 'vertical'
+        size: root.width, root.height
+
+        Label:
+            id: voltage_progress
+            text: '0 Volts'
+            font_size: 54
+            color: (0,0,0,1)
+
+            size_hint: None, None
+            width: 500
+            height: 500
+
+            progress: 0
+
+            pos_hint: {'center_x':.5, 'center_y':.8}
+
+            canvas.before:
+                Color:
+                    rgba: (0,0,1,1)
+                Ellipse:
+                    size: self.size
+                    pos: self.pos
+
+                Color:
+                    rgba: (1,0,0,1)
+                Ellipse:
+                    size: self.size
+                    pos: self.pos
+                    angle_end: self.progress
+
+                Color:
+                    rgba: (1,1,0,1)
+                Ellipse:
+                    size: [self.width -30 ,self.height-30]
+                    pos: [(self.center_x-(self.width-30)/2), (self.center_y-(self.height-30)/2)]
+
+        Label:
+            id: ampere_progress
+            text: '0 Amps'
+            font_size: 54
+            color: (0,0,0,1)
+
+            size_hint: None, None
+            width: 500
+            height: 500
+
+            progress: 0
+
+            pos_hint: {'center_x':.5, 'center_y':.55}
+
+            canvas.before:
+                Color:
+                    rgba: (0,0,1,1)
+                Ellipse:
+                    size: self.size
+                    pos: self.pos
+
+                Color:
+                    rgba: (1,0,0,1)
+                Ellipse:
+                    size: self.size
+                    pos: self.pos
+                    angle_end: self.progress*30
+
+                Color:
+                    rgba: (1,1,0,1)
+                Ellipse:
+                    size: [self.width -30 ,self.height-30]
+                    pos: [(self.center_x-(self.width-30)/2), (self.center_y-(self.height-30)/2)]
+
+        Label:
+            id: power_progress
+            text: '0 kW'
+            font_size: 54
+            color: (0,0,0,1)
+
+            size_hint: None, None
+            width: 500
+            height: 500
+
+            progress: 0
+
+            pos_hint: {'center_x':.5, 'center_y':.3}
+
+            canvas.before:
+                Color:
+                    rgba: (0,0,1,1)
+                Ellipse:
+                    size: self.size
+                    pos: self.pos
+
+                Color:
+                    rgba: (1,0,0,1)
+                Ellipse:
+                    size: self.size
+                    pos: self.pos
+                    angle_end: self.progress*60
+
+                Color:
+                    rgba: (1,1,0,1)
+                Ellipse:
+                    size: [self.width -30 ,self.height-30]
+                    pos: [(self.center_x-(self.width-30)/2), (self.center_y-(self.height-30)/2)]
+
+
+        Button:
+            font_size: 54
+			text: 'Exit'
+			pos_hint: {'center_x': 0.5}
+			size_hint: (1, .06)
+			background_color: (48/255,84/255,150/255,1)
+            on_press: app.stop()
+
+
